@@ -3,6 +3,48 @@
 {% block title %}MyUnofficialSite{% endblock %}
 
 {% block content %}
-<h1>CONTACT Page</h1>
-<p>CONTACTページのコンテンツ</p>
+  <style>
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .submit-button {
+      width: 150px;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 20px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: darkblue;
+    }
+  </style>
+
+  <h1>CONTACT Page</h1>
+  <form action="" method="post" class="contact-form">
+    {% csrf_token %}
+    <label for="subject">件名:</label><br>
+    <input type="text" id="subject" name="subject" class="input-field"><br>
+    <label for="message">本文:</label><br>
+    <textarea id="message" name="message" class="input-field"></textarea><br>
+    <input type="submit" value="送信" class="submit-button">
+  </form>
 {% endblock %}
